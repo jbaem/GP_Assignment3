@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 939304a6a0dc4854293af50040d9a5d1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - HYMyeongJo-Extra
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2df40f5ee3f53de4a9a8d318b9f8eea3, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
