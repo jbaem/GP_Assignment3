@@ -11,7 +11,6 @@ public class EnemyMovement : MonoBehaviour
     {
         InvokeRepeating("Randomizing", 0, 1);
         Invoke("CancelInvoke", delay);
-        Destroy(gameObject, delay);
     }
     void Randomizing()
     {

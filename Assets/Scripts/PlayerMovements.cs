@@ -1,95 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovements : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
+    
     public float speed;
     public float rotationSpeed;
     public float dashDistance;
-    // Update is called once per frame
+
+    private Vector2 movementValue;
+    private float lookValue;
+    private float speedUpValue = 1.0f;
+    private bool powerUpValue = false;
+
+    private Rigidbody rb;
+    
+    private void Awake()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        rb = GetComponent<Rigidbody>();
+    }
+    
+    public void OnMove(InputValue value)
+    {
+        movementValue = value.Get<Vector2>() * speed;
+    }
+
+    public void OnLook(InputValue value)
+    {
+        lookValue = value.Get<Vector2>().x * rotationSpeed;
+    }
+    
+    public void OnSpeedUp(InputValue value)
+    {
+        if(value.isPressed) { speedUpValue = 2; }
+        else { speedUpValue = 1; }
+    }
+    public void OnPowerUp(InputValue value)
+    {
+        if(value.isPressed) { powerUpValue = true; }
+        else { powerUpValue = false; }
+    }
+
     void Update()
     {
-        if (Input.GetKey(KeyCode.W)) {
-            if(Input.GetKey(KeyCode.Mouse1))
-            {
-                transform.Translate(0, 0, speed * Time.deltaTime / 2);
-            }
-            else if(Input.GetKey(KeyCode.LeftShift))
-            {
-                transform.Translate(0, 0, speed * Time.deltaTime * 2);
-            }
-            else
-            {
-                transform.Translate(0, 0, speed * Time.deltaTime);
-            }
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                transform.Translate(0, 0, dashDistance);
-            }
-        }
-        if (Input.GetKey(KeyCode.S)) {
-            if (Input.GetKey(KeyCode.Mouse1))
-            {
-                transform.Translate(0, 0, -speed * Time.deltaTime / 2);
-            }
-            else if (Input.GetKey(KeyCode.LeftShift))
-            {
-                transform.Translate(0, 0, -speed * Time.deltaTime * 2);
-            }
-            else
-            {
-                transform.Translate(0, 0, -speed * Time.deltaTime);
-            }
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                transform.Translate(0, 0, -dashDistance);
-            }
-        }
-        if (Input.GetKey(KeyCode.A)) {
-            if (Input.GetKey(KeyCode.Mouse1))
-            {
-                transform.Translate(-speed * Time.deltaTime / 2, 0, 0);
-            }
-            else if (Input.GetKey(KeyCode.LeftShift))
-            {
-                transform.Translate(-speed * Time.deltaTime * 2, 0, 0);
-            }
-            else
-            {
-                transform.Translate(-speed * Time.deltaTime, 0, 0);
-            }
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                transform.Translate(-dashDistance, 0, 0);
-            }
-        }
-        if (Input.GetKey(KeyCode.D)) {
-            if (Input.GetKey(KeyCode.Mouse1))
-            {
-                transform.Translate(speed * Time.deltaTime / 2, 0, 0);
-            }
-            else if (Input.GetKey(KeyCode.LeftShift))
-            {
-                transform.Translate(speed * Time.deltaTime * 2, 0, 0);
-            }
-            else
-            {
-                transform.Translate(speed * Time.deltaTime, 0, 0);
-            }
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                transform.Translate(dashDistance, 0, 0);
-            }
-        }
-        float mouseX = Input.GetAxis("Mouse X");
-        transform.Rotate(0, mouseX * rotationSpeed * Time.deltaTime, 0);
+        float teleport = Input.GetKeyDown(KeyCode.Space) ? 1 : 0;
+
+        transform.Translate(
+            movementValue.x * (Time.deltaTime * (powerUpValue ? 0.5f : speedUpValue) + dashDistance * teleport),
+            0,
+            movementValue.y * (Time.deltaTime * (powerUpValue ? 0.5f : speedUpValue) + dashDistance * teleport));
+        transform.Rotate(0, lookValue * Time.deltaTime, 0);
+
+        rb.AddRelativeForce(
+            movementValue.x * Time.deltaTime,
+            0,
+            movementValue.y * Time.deltaTime);
+        rb.AddRelativeTorque(0, lookValue * Time.deltaTime, 0);
     }
 }

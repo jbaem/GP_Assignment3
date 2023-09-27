@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 855596065684308191}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_Body_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 124795275035539958}
   - component: {fileID: 1305055376731996529}
   - component: {fileID: 7479673102333541462}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6781589045091722457}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 1373116102434955833}
   - component: {fileID: 6854283606290612130}
   - component: {fileID: 3416012405233725205}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2257666537757089343}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_Foot_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 144184597338691685}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_Foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2055440686349796855}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3945915449139645007}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7197433264791667333}
   - component: {fileID: -2055147875385401775}
-  m_Layer: 0
+  - component: {fileID: -7607909885429146706}
+  - component: {fileID: 6142348857046821526}
+  - component: {fileID: 8439840827145640073}
+  - component: {fileID: -6627357383195977482}
+  - component: {fileID: -7592075065524131221}
+  m_Layer: 7
   m_Name: Simple Enemy A AnimTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,6 +412,77 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 10
   speed: 2
+--- !u!136 &-7607909885429146706
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7541765515065989183}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6142348857046821526
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7541765515065989183}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8439840827145640073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7541765515065989183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21db1595668f7014a9586c476a6fb005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 1
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &-6627357383195977482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7541765515065989183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1acbcee286ca24181645ce3acdd9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 1
+--- !u!114 &-7592075065524131221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7541765515065989183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5393ec7e31b03fc4990d1cb20c9e9346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8377983038112987016
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 14007964193215738}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_Foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5269595563457568773}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone_Foot_L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +558,7 @@ GameObject:
   - component: {fileID: 3306412185415942699}
   - component: {fileID: 6199894339927189441}
   - component: {fileID: 320497046710409076}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

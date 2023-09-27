@@ -1,18 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ZoomInOut : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
- 
-    }
-
     private bool zoomFlag = false;
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetKey(KeyCode.Mouse1))
@@ -26,7 +20,7 @@ public class ZoomInOut : MonoBehaviour
         }
         else
         {
-            if(zoomFlag)
+            if (zoomFlag)
             {
                 zoomFlag = false;
                 transform.Translate(0, 1.5f, -1.5f);
