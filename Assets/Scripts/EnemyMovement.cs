@@ -21,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+        /*
         if (moveDirection == 0) { transform.Translate(0, 0, 0); }
         else if (moveDirection == 1) { transform.Translate(0, speed * Time.deltaTime, 0); }
         else if (moveDirection == 2) { transform.Translate(0, -speed * Time.deltaTime, 0); }
@@ -30,5 +31,6 @@ public class EnemyMovement : MonoBehaviour
         else if (moveDirection == 6) { transform.Translate(speed * Time.deltaTime, -speed * Time.deltaTime, 0); }
         else if (moveDirection == 7) { transform.Translate(speed * Time.deltaTime, 0, 0); }
         else if (moveDirection == 8) { transform.Translate(-speed * Time.deltaTime, 0, 0); }
+         */
     }
 }

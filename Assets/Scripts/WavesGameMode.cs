@@ -9,7 +9,7 @@ public class WavesGameMode : MonoBehaviour
     
     void Start()
     {
-        Invoke("WinLose", 20);
+        Invoke("WinLose", 60);
     }
 
     void Update()

@@ -16,6 +16,7 @@ public class PlayerShooting : MonoBehaviour
 
     private bool spiderFlag = false;
 
+    public ParticleSystem muzzleEffect;
     void OnFire(InputValue value)
     {
         clone = Instantiate(prefab);
@@ -30,6 +31,7 @@ public class PlayerShooting : MonoBehaviour
             clone2 = Instantiate(clone);
             clone2.transform.Translate(-bulletSide, -1, 2);
         }
+
     }
     void OnPowerUp(InputValue value)
     {
