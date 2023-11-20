@@ -28,9 +28,10 @@ public class EnemyFSM : MonoBehaviour
         Vector3 desireDirection = agent.velocity.normalized;
         if(desireDirection != Vector3.zero)
         {
-            Quaternion desireRotation = Quaternion.LookRotation(desireDirection, Vector3.up) * Quaternion.Euler(-90, 0, 0); ;
+            
+            Quaternion desireRotation = Quaternion.LookRotation(desireDirection, Vector3.up) * Quaternion.Euler(-90, 0, 0);
             agent.transform.rotation = desireRotation;
-
+            
             float offsetY = 0.7f;
             Vector3 newPosition = new Vector3(agent.transform.position.x, agent.transform.position.y + offsetY, agent.transform.position.z);
             agent.transform.position = newPosition;
@@ -74,7 +75,7 @@ public class EnemyFSM : MonoBehaviour
             currentState = EnemyState.GoToBase;
             return;
         }
-        float chaseSpeed = 8.0f;
+        float chaseSpeed = 10.0f;
         agent.speed = chaseSpeed;
 
         agent.SetDestination(sightSensor.detectedObject.transform.position);
@@ -91,7 +92,7 @@ public class EnemyFSM : MonoBehaviour
     void ReadyToRun()
     {
         
-        float chaseSpeed = 0.0f;
+        float chaseSpeed = 0.1f;
         agent.speed = chaseSpeed;
 
         float elapsedTimeInReadyToRun = Time.time - timeInReadyToRun;
@@ -104,6 +105,14 @@ public class EnemyFSM : MonoBehaviour
         {
             currentState = EnemyState.GoToBase;
         }
+
+        // 살짝 수직 이동
+        float verticalSpeed = 6.0f; // 수직 이동 속도
+        float verticalAmount = 0.2f; // 수직 이동 거리
+        float verticalOffset = Mathf.Sin(Time.time * verticalSpeed) * verticalAmount;
+
+        // Translate 함수를 사용하여 살짝 수직 이동
+        agent.transform.Translate(new Vector3(0.0f, 0.0f, -verticalOffset));
     }
 
     private void OnDrawGizmos()
