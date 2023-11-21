@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class PlayerMovements : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class PlayerMovements : MonoBehaviour
     private bool powerUpValue = false;
 
     private Rigidbody rb;
-    
+    public VisualEffect vfxRenderer;
+
     private void Awake()
     {
         Cursor.visible = false;
@@ -61,5 +63,7 @@ public class PlayerMovements : MonoBehaviour
             0,
             movementValue.y * Time.deltaTime);
         rb.AddRelativeTorque(0, lookValue * Time.deltaTime, 0);
+
+        vfxRenderer.SetVector3("ColliderPos", transform.position);
     }
 }
