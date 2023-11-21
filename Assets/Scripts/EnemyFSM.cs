@@ -75,7 +75,7 @@ public class EnemyFSM : MonoBehaviour
             currentState = EnemyState.GoToBase;
             return;
         }
-        float chaseSpeed = 10.0f;
+        float chaseSpeed = 12.0f;
         agent.speed = chaseSpeed;
 
         agent.SetDestination(sightSensor.detectedObject.transform.position);

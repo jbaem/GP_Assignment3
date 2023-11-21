@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.VFX;
 
 public class PlayerMovements : MonoBehaviour
 {
@@ -17,7 +16,7 @@ public class PlayerMovements : MonoBehaviour
     private bool powerUpValue = false;
 
     private Rigidbody rb;
-    public VisualEffect vfxRenderer;
+    public ParticleSystem speedUpEffect;
 
     private void Awake()
     {
@@ -39,7 +38,7 @@ public class PlayerMovements : MonoBehaviour
     
     public void OnSpeedUp(InputValue value)
     {
-        if(value.isPressed) { speedUpValue = 2; }
+        if(value.isPressed) { speedUpValue = 2; speedUpEffect.Play(); }
         else { speedUpValue = 1; }
     }
     public void OnPowerUp(InputValue value)
@@ -64,6 +63,5 @@ public class PlayerMovements : MonoBehaviour
             movementValue.y * Time.deltaTime);
         rb.AddRelativeTorque(0, lookValue * Time.deltaTime, 0);
 
-        vfxRenderer.SetVector3("ColliderPos", transform.position);
     }
 }
