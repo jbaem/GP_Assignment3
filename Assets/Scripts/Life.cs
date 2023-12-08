@@ -12,7 +12,11 @@ public class Life : MonoBehaviour
         if(amount <= 0)
         {
             onDeath.Invoke();
-            Destroy(gameObject);
+            Invoke("DestroyObj", 2.0f);
         }
+    }
+    void DestroyObj()
+    {
+        Destroy(gameObject);
     }
 }

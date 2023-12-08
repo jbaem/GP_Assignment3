@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class WavesGameMode : MonoBehaviour
 {
     [SerializeField] Life playerLife;
-    
+    [SerializeField] Life baseLife;
     void Start()
     {
         Invoke("WinLose", 60);
@@ -14,6 +14,10 @@ public class WavesGameMode : MonoBehaviour
 
     void Update()
     {
+        if(playerLife.amount <= 0 || baseLife.amount <= 0)
+        {
+            SceneManager.LoadScene("LoseScreen");
+        }
     }
 
     void WinLose()

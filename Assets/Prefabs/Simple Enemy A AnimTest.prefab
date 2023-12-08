@@ -70,8 +70,8 @@ MonoBehaviour:
   sightSensor: {fileID: 3189896941756405540}
   baseTransform: {fileID: 4453216576364244235, guid: c00ec14b9930fbe4c84cab8e8e23287f,
     type: 3}
-  baseAttackDistance: 2
-  playerAttackDistance: 3
+  baseAttackDistance: 4
+  playerAttackDistance: 5
 --- !u!1 &304906287291905871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,7 +1198,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 50
+        scalar: 10
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -5333,9 +5333,10 @@ GameObject:
   - component: {fileID: -7592075065524131221}
   - component: {fileID: 529448007870504314}
   - component: {fileID: 1521353567445546290}
+  - component: {fileID: 1763758510312282059}
   m_Layer: 7
   m_Name: Simple Enemy A AnimTest
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5389,7 +5390,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5436,7 +5437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21db1595668f7014a9586c476a6fb005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 1
+  amount: 5
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -5499,7 +5500,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07483baf09d258446a7d197ba3cb42d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particlePrefab: {fileID: 1649300015266817404}
+  particlePrefab: {fileID: 3922650712211497021}
+--- !u!114 &1763758510312282059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7541765515065989183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513404ced6be31545819c2d15fd59593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &8377983038112987016
 GameObject:
   m_ObjectHideFlags: 0

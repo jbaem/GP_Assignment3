@@ -16,10 +16,13 @@ public class EnemyFSM : MonoBehaviour
     private float timeInReadyToRun = 0f;
     private float readyToRunDuration = 2f;
 
+    private bool alreadyRun;
+
     private void Awake()
     {
         baseTransform = GameObject.Find("Base").transform;
         agent = GetComponentInParent<NavMeshAgent>();
+        alreadyRun = false;
     }
 
     // Update is called once per frame
@@ -87,6 +90,8 @@ public class EnemyFSM : MonoBehaviour
         {
             currentState = EnemyState.ReadyToRun;
         }
+
+        alreadyRun = true;
     }
 
     void ReadyToRun()
@@ -96,7 +101,7 @@ public class EnemyFSM : MonoBehaviour
         agent.speed = chaseSpeed;
 
         float elapsedTimeInReadyToRun = Time.time - timeInReadyToRun;
-        if(elapsedTimeInReadyToRun >= readyToRunDuration)
+        if(alreadyRun || elapsedTimeInReadyToRun >= readyToRunDuration)
         {
             currentState = EnemyState.ChasePlayer;
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExplosionOnDeath : MonoBehaviour
 {
-    public GameObject particlePrefab;
+    public ParticleSystem particlePrefab;
 
     private void Awake()
     {
@@ -14,8 +14,6 @@ public class ExplosionOnDeath : MonoBehaviour
 
     void OnDeath()
     {
-        Instantiate(particlePrefab,
-            transform.position,
-            transform.rotation);
+        particlePrefab.Play();
     }
 }

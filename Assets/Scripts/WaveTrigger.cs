@@ -11,7 +11,7 @@ public class WaveTrigger : MonoBehaviour
     {
         waveSpawner.transform.position = this.transform.position;
         wave1 = Instantiate(waveSpawner);
-        wave1.transform.Translate(10, -0.5f, 0);
+        wave1.transform.Translate(10, -0.5f, -2.0f);
         wave2 = Instantiate(waveSpawner);
         wave2.transform.Translate(-20, 0, 0);
     }

@@ -8,13 +8,16 @@ public class ContactDamager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
-
-        Life life = other.GetComponent<Life>();
-
-        if(life != null)
+        if(other.CompareTag("Enemy"))
         {
-            life.amount -= damage;
+            Life life = other.GetComponent<Life>();
+
+            if(life != null)
+            {
+                life.amount -= damage;
+            }
+            Destroy(gameObject);
         }
+
     }
 }
