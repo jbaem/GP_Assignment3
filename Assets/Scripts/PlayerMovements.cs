@@ -38,8 +38,22 @@ public class PlayerMovements : MonoBehaviour
     
     public void OnSpeedUp(InputValue value)
     {
-        if(value.isPressed) { speedUpValue = 2; speedUpEffect.Play(); }
-        else { speedUpValue = 1; }
+        if (value.isPressed)
+        {
+            speedUpValue = 2;
+            if (!speedUpEffect.isPlaying)
+            {
+                speedUpEffect.Play();
+            }
+        }
+        else
+        {
+            speedUpValue = 1;
+            if (speedUpEffect.isPlaying)
+            {
+                speedUpEffect.Stop();
+            }
+        }
     }
     public void OnPowerUp(InputValue value)
     {
