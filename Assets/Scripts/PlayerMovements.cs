@@ -17,6 +17,7 @@ public class PlayerMovements : MonoBehaviour
 
     private Rigidbody rb;
     public ParticleSystem speedUpEffect;
+    public AudioSource speedUpSound;
 
     private void Awake()
     {
@@ -44,6 +45,7 @@ public class PlayerMovements : MonoBehaviour
             if (!speedUpEffect.isPlaying)
             {
                 speedUpEffect.Play();
+                speedUpSound.Play();
             }
         }
         else
@@ -52,6 +54,7 @@ public class PlayerMovements : MonoBehaviour
             if (speedUpEffect.isPlaying)
             {
                 speedUpEffect.Stop();
+                speedUpSound.Stop();
             }
         }
     }

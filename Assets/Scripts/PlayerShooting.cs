@@ -17,6 +17,7 @@ public class PlayerShooting : MonoBehaviour
     private bool spiderFlag = false;
 
     public ParticleSystem muzzleEffect;
+    public AudioSource shootSound;
 
     void OnFire(InputValue value)
     {
@@ -35,6 +36,7 @@ public class PlayerShooting : MonoBehaviour
         }
 
         muzzleEffect.Play();
+        shootSound.Play();
     }
     void OnPowerUp(InputValue value)
     {

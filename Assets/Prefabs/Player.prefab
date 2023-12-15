@@ -4839,6 +4839,7 @@ GameObject:
   - component: {fileID: 7462266593894345663}
   - component: {fileID: 5659001249866989884}
   - component: {fileID: 7790564160618328380}
+  - component: {fileID: 9073614987548457766}
   m_Layer: 6
   m_Name: muzzleEffect
   m_TagString: Untagged
@@ -9714,6 +9715,102 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!82 &9073614987548457766
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275384891838734394}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d41cd0cb60137d04b93883e2a5dab7a3, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6826301448433550705
 GameObject:
   m_ObjectHideFlags: 0
@@ -10436,6 +10533,7 @@ MonoBehaviour:
   rotationSpeed: 1
   dashDistance: 1
   speedUpEffect: {fileID: 5182341508677274293}
+  speedUpSound: {fileID: 0}
 --- !u!114 &5697224893029919644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10455,6 +10553,7 @@ MonoBehaviour:
   spiderDelay: 0.02
   bulletSide: 2
   muzzleEffect: {fileID: 5659001249866989884}
+  shootSound: {fileID: 9073614987548457766}
 --- !u!114 &2678204662489039443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10498,7 +10597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21db1595668f7014a9586c476a6fb005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 5
+  amount: 10
   onDeath:
     m_PersistentCalls:
       m_Calls: []
