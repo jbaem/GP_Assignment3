@@ -11,6 +11,9 @@ public class GameStart : MonoBehaviour
 
     void Awake()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         startButton.onClick.AddListener(OnStartButton);
     }
 
