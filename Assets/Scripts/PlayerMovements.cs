@@ -19,10 +19,14 @@ public class PlayerMovements : MonoBehaviour
     public ParticleSystem speedUpEffect;
     public AudioSource speedUpSound;
 
+    public Animator animator;
+
     private void Awake()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        animator = GetComponent<Animator>();
 
         rb = GetComponent<Rigidbody>();
     }
@@ -30,6 +34,7 @@ public class PlayerMovements : MonoBehaviour
     public void OnMove(InputValue value)
     {
         movementValue = value.Get<Vector2>() * speed;
+        animator.Play("player_movement");
     }
 
     public void OnLook(InputValue value)
@@ -79,6 +84,11 @@ public class PlayerMovements : MonoBehaviour
             0,
             movementValue.y * Time.deltaTime);
         rb.AddRelativeTorque(0, lookValue * Time.deltaTime, 0);
+
+        if(movementValue.x == 0 && movementValue.y == 0)
+        {
+            animator.Play("player_idle");
+        }
 
     }
 }
